@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import Results from "./Results";
 import axios from "axios";
 
 export default function SearchEngine() {
   let [keyword, setKeyword] = useState("");
+  let [results, setResults] = useState(null);
 
   function handleResponse(response) {
-    console.log(response.data[0]);
+    setResults(response.data[0]);
   }
 
   // documentation: https://dictionaryapi.dev/
@@ -26,6 +28,7 @@ export default function SearchEngine() {
       <form onSubmit={search}>
         <input type="search" onChange={handleKeywordChange} />
       </form>
+      <Results results={results} />
     </div>
   );
 }
