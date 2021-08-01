@@ -28,7 +28,12 @@ export default function SearchEngine() {
     <div className="Dictionary">
       <section>
         <form onSubmit={search}>
-          <input type="search" onChange={handleKeywordChange} />
+          <input
+            type="search"
+            onChange={handleKeywordChange}
+            autoFocus="on"
+            placeholder="Type a word ... "
+          />
         </form>
       </section>
       <Results results={results} />
